@@ -2,24 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class projectileController : MonoBehaviour
+public abstract class ProjectileController : MonoBehaviour
 {
 
-    private GameObject player;
-    private Rigidbody projectilRb;
-    private Transform cam;
-    public float projectilVelocity = 100f;
-    void Start()
+    protected Rigidbody bulletRb;
+    protected Transform cam;
+    [SerializeField] private float _velocity;
+    public float velocity // ENCAPSULATION
     {
-        cam = GameObject.Find("Main Camera").transform;
-        player = GameObject.Find("ThirdPersonPlayer");
-        projectilRb = GetComponent<Rigidbody>();
-        projectilRb.AddForce(cam.forward * projectilVelocity * Time.deltaTime, ForceMode.Impulse);
+        get { return _velocity;}
+        set {_velocity = value;}
     }
 
-    // Update is called once per frame
-    void Update()
+    protected Vector3 direction;
+
+    protected virtual void Awake()
     {
-        
+        cam = GameObject.Find("Main Camera").transform;
+        bulletRb = GetComponent<Rigidbody>();
+        GetDirection();
+        Fire(); // ABSTRACTION
+    }
+
+    protected virtual void Fire()
+    {
+        bulletRb.AddForce(direction * velocity * Time.deltaTime, ForceMode.Impulse);
+    }
+
+    protected void GetDirection()
+    {
+        direction = cam.forward;
     }
 }

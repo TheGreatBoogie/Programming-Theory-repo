@@ -1106,8 +1106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e0dc3c13479a114e831ce72262bd08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 20278129347177275, guid: fd6845a2c8d42ea48bdfbcd5e0a5f70d, type: 3}
-  bullet2: {fileID: 20278129347177275, guid: b19d38f7874f62848b1c4f53e9832df9, type: 3}
+  bullet1: {fileID: -5976946345907886238, guid: fd6845a2c8d42ea48bdfbcd5e0a5f70d, type: 3}
+  bullet2: {fileID: 198556522300002794, guid: b19d38f7874f62848b1c4f53e9832df9, type: 3}
 --- !u!1 &1950328029
 GameObject:
   m_ObjectHideFlags: 0
